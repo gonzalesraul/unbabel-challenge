@@ -6,7 +6,10 @@ verify_ssl = true
 [dev-packages]
 "flake8" = "*"
 pytest = "*"
+pytest-cov = "*"
 pipenv = "*"
+coveralls = "*"
+tox = "*"
 
 [packages]
 click = "*"
