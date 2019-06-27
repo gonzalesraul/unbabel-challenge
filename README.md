@@ -45,7 +45,24 @@ Goal: Provide a simple CLI to calculate the average took to delivery translation
 
 ## Creating Development Environment
 
-`TBD`
+For portable installation method (that works on Windows, Mac OS X, Linux), make sure to have all pre-requirements.
+
+### Pre-requirements
+* [Git](https://git-scm.com/)
+* [Python 3.7+](https://www.python.org/downloads/)
+* [Pip](https://pip.pypa.io/en/stable/installing/)
+
+> Verify both versions of pip and setuptools are up-to-date `pip install --upgrade pip setuptools`
+
+To get a environment ready to work follow the steps below:
+
+```sh
+git clone git@github.com:gonzalesraul/unbabel-challenge.git unbabel-challenge
+cd unbabel-challenge
+pip install pipenv
+pipenv install --dev
+pipenv shell
+```
 
 ### Testing
 
