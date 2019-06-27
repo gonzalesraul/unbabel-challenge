@@ -1,88 +1,56 @@
-# Bakckend Engineering Challenge
+# Unbabel Challenge
 
+Provide a simple CLI to calculate the average took to delivery translations in a stream of data. 
 
-Welcome to our Engineering Challenge repository 🖖
+## Table of content:
 
-If you found this repository it probably means that you are participating in our recruitment process. Thank you for your time and energy. If that's not the case please take a look at our [openings](https://unbabel.com/careers/) and apply!
+1. [The challenge](docs/unbabel-challenge.md)
+2. [Introduction](#introduction)
+3. [Installation](#Installation)
+4. [Usage](#usage)
+   1. [Examples](#examples)
+5. [Creating Development Environment](#creating-development-environment)
+   1. [Testing](#testing)
+6. [License](#license)
 
-Please fork this repo before you start working on the challenge, read it careful and take your time and think about the solution. Also, please fork this repository because we will evaluate the code on the fork.
+For more information check [Additional Documentation](#additional-documentation)
 
-This is an opportunity for us both to work together and get to know each other in a more technical way. If have some doubt please open and issue and we'll reach out to help.
+## Introduction
 
-Good luck!
+Meet **SAM** (**S**tream **A**verage **M**etric for short) is a command-line interface app.
 
-## Challenge Scenario
+Goal: Provide a simple CLI to calculate the average took to delivery translations in stream of data
 
-At Unbabel we deal with a lot of translation data. One of the metrics we use for our clients' SLAs is the delivery time of a translation. 
+**What is it not:**
 
-In the context of this problem, and to keep things simple, our translation flow is going to be modeled as only one event.
+  * It is not a monitoring solution. Use properly monitoring tools;
+  * It does not provide any other metrics other than [moving average](https://en.wikipedia.org/wiki/Moving_average) for delivering events;
 
-### *translation_delivered*
+**Considerations:**
 
-Example:
+  * The process compute the data as streaming, you can pipe (|) your stdout or use any other POSIX standard (files, sockets, stderr ...)
+  * The outcome is grouped by each minute in a sequential order, data with timestamps delayed will be ignored
 
-```json
-{
-	"timestamp": "2018-12-26 18:12:19.903159",
-	"translation_id": "5aa5b2f39f7254a75aa4",
-	"source_language": "en",
-	"target_language": "fr",
-	"client_name": "easyjet",
-	"event_name": "translation_delivered",
-	"duration": 20,
-	"nr_words": 100
-}
-```
+## Installation
 
-## Challenge Objective
+`TBD`
 
-Your mission is to build a simple command line application that parses a stream of events and produces an aggregated output. In this case, we're interested in calculating, for every minute, a moving average of the translation delivery time for the last X minutes.
+## Usage
 
-If we want to count, for each minute, the moving average delivery time of all translations for the past 10 minutes we would call your application like (feel free to name it anything you like!).
+`TBD`
 
-	unbabel_cli --input_file events.json --window_size 10
-	
-The input file format would be something like:
+### Examples
 
-	{"timestamp": "2018-12-26 18:11:08.509654","translation_id": "5aa5b2f39f7254a75aa5","source_language": "en","target_language": "fr","client_name": "easyjet","event_name": "translation_delivered","nr_words": 30, "duration": 20}
-	{"timestamp": "2018-12-26 18:15:19.903159","translation_id": "5aa5b2f39f7254a75aa4","source_language": "en","target_language": "fr","client_name": "easyjet","event_name": "translation_delivered","nr_words": 30, "duration": 31}
-	{"timestamp": "2018-12-26 18:23:19.903159","translation_id": "5aa5b2f39f7254a75bb33","source_language": "en","target_language": "fr","client_name": "booking","event_name": "translation_delivered","nr_words": 100, "duration": 54}
+`TBD`
 
+## Creating Development Environment
 
-The output file would be something in the following format.
+`TBD`
 
-```
-{"date": "2018-12-26 18:11:00", "average_delivery_time": 0}
-{"date": "2018-12-26 18:12:00", "average_delivery_time": 20}
-{"date": "2018-12-26 18:13:00", "average_delivery_time": 20}
-{"date": "2018-12-26 18:14:00", "average_delivery_time": 20}
-{"date": "2018-12-26 18:15:00", "average_delivery_time": 20}
-{"date": "2018-12-26 18:16:00", "average_delivery_time": 25.5}
-{"date": "2018-12-26 18:17:00", "average_delivery_time": 25.5}
-{"date": "2018-12-26 18:18:00", "average_delivery_time": 25.5}
-{"date": "2018-12-26 18:19:00", "average_delivery_time": 25.5}
-{"date": "2018-12-26 18:20:00", "average_delivery_time": 25.5}
-{"date": "2018-12-26 18:21:00", "average_delivery_time": 25.5}
-{"date": "2018-12-26 18:22:00", "average_delivery_time": 31}
-{"date": "2018-12-26 18:23:00", "average_delivery_time": 31}
-{"date": "2018-12-26 18:24:00", "average_delivery_time": 42.5}
-```
+### Testing
 
-#### Notes
+`TBD`
 
-Before jumping right into implementation we advise you to think about the solution first. We will evaluate, not only if your solution works but also the following aspects:
+## License
 
-+ Simple and easy to read code. Remember that [simple is not easy](https://www.infoq.com/presentations/Simple-Made-Easy)
-+ Include a README.md that briefly describes how to build and run your code
-+ Be consistent in your code. 
-
-Feel free to, in your solution, include some your considerations while doing this challenge. We want you to solve this challenge in the language you feel most confortable with. Our machines run Python, Ruby, Scala, Java, Clojure, Elixir and Nodejs. If you are thinking of using any other programming language please reach out to us first 🙏.
-
-Also if you have any problem please **open an issue**. 
-
-Good luck and may the force be with you
-
-#### Extra points
-
-If you feeling creative feel free to consider any additional cases you might find interesting. Remember this is a bonus, focus on delivering the solution first.
-
+Copyright (c) 2019, Raul Gonzales. Distributed under BSD-3-Clause. See [LICENSE](LICENSE).
