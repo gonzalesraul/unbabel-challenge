@@ -26,6 +26,7 @@ def test_invalid_window_size():
 def test_valid_input():
     runner = CliRunner(echo_stdin=True)
     result = runner.invoke(main, input='{"timestamp": "2018-12-26 18:11:08.509654","event_name": "translation_delivered","duration": 20}')
+    assert '{ "date": "2018-12-26 18:12:00", "average_delivery_time": 20 }' in result.stdout
     assert result.exit_code == 0
 
 

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 import sam
 import click
+import jsonlines
 import logging
 from driftwood.formatters import JSONFormatter
+from .stream import process
 
 
 # Set logging for json in case of errors will be logged to stderr in JSON format
@@ -31,4 +33,6 @@ def positive_int(ctx, param, value):
 @click.option('-w', '--window_size', type=int, default=10, callback=positive_int, envvar='SAM_WINDOW_SIZE',
                     help='Time window for the past N seconds (default: 10)\nNeeds to be a positive integer')
 def main(input_file, window_size):
-    pass
+    # Prepares the iterator to be resilient to errors on the stream
+    iterator = jsonlines.Reader(input_file).iter(type=dict, allow_none=True, skip_empty=True, skip_invalid=True)
+    process(iterator, window_size, click.echo)
