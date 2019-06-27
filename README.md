@@ -1,5 +1,8 @@
 # Unbabel Challenge
 
+[![Build Status](https://travis-ci.org/gonzalesraul/unbabel-challenge.svg?branch=master)](https://travis-ci.org/gonzalesraul/unbabel-challenge) 
+[![Coverage Status](https://coveralls.io/repos/github/gonzalesraul/unbabel-challenge/badge.svg?branch=master)](https://coveralls.io/github/gonzalesraul/unbabel-challenge?branch=master)
+
   Provide a simple CLI to calculate the average took to delivery translations in a stream of data. 
 
 ## Table of content:
